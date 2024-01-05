@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Contact Us - My Startup Company</title>
+    <link rel="stylesheet" href="static/Contactus.css">
+  </head>
+  <body>
+    <!-- Header section -->
+    <header>
+        <div class="logo">
+            <a href="#"><img src="static/logo.png" alt="Model"></a>
+        </div>
+      <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="predict.html">Prediction</a></li>
+            <li><a href="/">Analysis</a></li>
+            <li><a href="/">Dataset</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="Contactus.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <!-- Main section -->
+    <main>
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>Send us a message, and we'll get back to you as soon as possible.</p>
+        <form action="submit-form.php" method="post">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </main>
+    
+    <!-- Footer section -->
+    <footer>
+      <p>&copy; 2023 Real Estate. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

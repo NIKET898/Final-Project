@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head xmlns="http://www.w3.org/1999/xhtml">
+
+
+    <meta charset="UTF-8">
+    <title>Price Predictor</title>
+    <link rel="stylesheet" href="static/pedict.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+
+</head>
+<body>
+        <header>
+            <div class="logo">
+                <a href="#"><img src="static/logo.png"></a>
+              </div>
+            <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="predict.html">Prediction</a></li>
+                <li><a href="/">Analysis</a></li>
+                <li><a href="/">Dataset</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="Contactus.html">Contact</a></li>
+              </ul>
+            </nav>
+        </header>
+        <section>
+
+            <div class="container" style="text-align: center">
+                <div class="row" style="text-align: center">
+                    <div class="all">
+                        <h1>Real Estate Price Predicton</h1>
+                    </div>
+                    <div class="card-body" style="text-align: center">
+
+                            <br>
+                            <form method="post" accept-charset="utf-8" name="Modelform">
+                                <div class="col-md-10 form-group" style="text-align: center">
+                                    <label><b>Select the City:</b> </label>
+                                    <br>
+                                    <select class="selectpicker form-control" id="City" name="City" required="required" >
+                                        {% for City in one %}
+                                        <option value="{{ City }}">{{ City }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="col-md-10 form-group" style="text-align: center">
+                                    <label><b>Select Location:</b> </label><br>
+                                    <select class="selectpicker form-control" id="Location" name="Location" required="required">
+                                        {% for Location in two %}
+                                        <option value="{{ Location }}">{{ Location }}</option>
+                                        {% endfor %}
+
+                                    </select>
+                                </div>
+
+                                <div class="col-md-10 form-group" style="text-align: center">
+                                    <label><b>Select the Area:</b> </label><br>
+                                    <select class="selectpicker form-control" id="Area" name="Area" required="required">
+                                         {% for Area in three %}
+                                        <option value="{{ Area }}">{{ Area }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="col-md-10 form-group" style="text-align: center">
+                                    <label><b>Select the BHK</b> </label><br>
+                                    <input type="text" class="form-control" id="bhk" name="bhk"
+                                           placeholder="Enter the BHK ">
+                                </div>
+                                <div class="col-md-10 form-group" style="text-align: center">
+                                    <button  class="btn btn-primary form-control" onclick="send_data()">Predict Price</button>
+                                </div>
+                            </form>
+                            <br>
+                            <div class="ro">
+                                <div class="col-12" style="text-align: center">
+                                    <h4><span id="prediction"></span></h4>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>>
+
+        <script>
+
+
+
+            function form_handler(event) {
+                event.preventDefault(); // Don't submit the form normally
+               }
+
+                function send_data()
+                {
+                    document.querySelector('form').addEventListener("submit", form_handler);
+
+                    var fd = new FormData(document.querySelector('form'));
+
+                    var xhr = new XMLHttpRequest();
+
+                    xhr.open('POST', '/Predict', true);
+
+                    document.getElementById('prediction').innerHTML = "Wait! Predicting Price.....";
+
+                    xhr.onreadystatechange = function()
+                    {
+                        if (xhr.readyState == XMLHttpRequest.DONE) {
+                            document.getElementById('prediction').innerHTML = "Prediction: ₹" + xhr.responseText;
+                        }
+
+                    };
+
+
+                xhr.send(fd);
+                }
+
+        </script>
+
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+                crossorigin="anonymous"></script>
+</body>
+</html>

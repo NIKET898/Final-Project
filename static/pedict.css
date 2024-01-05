@@ -1,0 +1,115 @@
+.logo img {
+    height: 60px;
+    width: auto;
+  }
+
+  /* Styles for the header */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #333;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li {
+    margin-left: 20px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  nav a:hover {
+    color: #f0ec1b;
+  }
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background: url('home.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+    .row {
+        position: relative;
+        justify-content: center;
+        width: 500px;
+        height: 610px;
+        background: transparent;
+        border-radius: 40px;
+        border: 2px solid rgba(255,255,255,0.5)
+        border-radius: 20px;
+        backdrop-filter: blur(35px);
+        display: fix;
+
+        align-items: center;
+    }
+    h1{
+        font-size: 1em;
+        color: #fff;
+        text-align: center;
+    }
+    h5{
+        font-size: 2em;
+        color: #fff;
+        text-align: center;
+    }
+    label{
+        font-size: 1em;
+        color: #fff;
+        text-align: center;
+    }
+    .inputbox {
+        position: relative;
+        margin: 30px 10px;
+        width: 310px;
+        border-bottom: 12px solid #fff;
+    }
+    .inputbox label{
+        position: absolute;
+        top: 90%;
+        left: 55px;
+        transform: translateY(-50%);
+        color: #fff;
+        fornt-size: lem;
+        pointer-enents: none;
+    }
+    input:focus ~ label,
+    input:focus ~ :valid{
+    top: -5px
+    }
+    .select picker form-control {
+        width: 100%;
+        height: 50px;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: lem;
+        padding:100px 35px 10px 5px;
+        color: #fff;
+    }
+    button{
+        width: 100%;
+        height: 40px;
+        border-radius: 40px;
+        background: #ff3f;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: lem;
+        font-weight: 600;
+    }
